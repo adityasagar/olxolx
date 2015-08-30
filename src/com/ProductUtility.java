@@ -59,6 +59,29 @@ public class ProductUtility {
 	public static void sendEmail(ProductVO product,UserVO buyer,UserVO seller,String msg){
 		String to=seller.getEmail();
 		String from=buyer.getEmail();
+		String host="smtp.verizon.com";
+		System.out.println(to+" ,"+from);
+		Properties properties = System.getProperties();
+		properties.setProperty("mail.smtp.host", host);
+		Session session = Session.getDefaultInstance(properties);
+		MimeMessage message= new MimeMessage(session);
+		try {
+			message.setFrom(new InternetAddress("Verizon_Employee_Classifieds"));
+		
+		message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+		message.setSubject("VZ Classified");
+		message.setText(msg);
+		System.out.println("sending---");
+		Transport.send(message);
+		System.out.println("sent---");
+		} catch (MessagingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	/*public static void sendEmail(ProductVO product,UserVO buyer,UserVO seller,String msg){
+		String to=seller.getEmail();
+		String from=buyer.getEmail();
 		String host="smtp.gmail.com";
 		System.out.println(to+" ,"+from);
 		//Properties properties = System.getProperties();
@@ -94,7 +117,7 @@ public class ProductUtility {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
+	}*/
 	public static boolean productEntry(ProductVO p) throws Exception{
 		int rows=0;
 		boolean check=false;
