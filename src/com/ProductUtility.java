@@ -56,7 +56,7 @@ public class ProductUtility {
 		}
 		return p;
 	}
-	public static void sendEmail(ProductVO product,UserVO buyer,UserVO seller,String msg){
+	/*public static void sendEmail(ProductVO product,UserVO buyer,UserVO seller,String msg){
 		String to=seller.getEmail();
 		String from=buyer.getEmail();
 		String host="smtp.verizon.com";
@@ -78,8 +78,8 @@ public class ProductUtility {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-	/*public static void sendEmail(ProductVO product,UserVO buyer,UserVO seller,String msg){
+	}*/
+	public static void sendEmail(ProductVO product,UserVO buyer,UserVO seller,String msg){
 		String to=seller.getEmail();
 		String from=buyer.getEmail();
 		String host="smtp.gmail.com";
@@ -107,7 +107,7 @@ public class ProductUtility {
 
 		try {
 			
-			message.setFrom(new InternetAddress("VerizonEmployeeClassifieds@gmail.com"));
+			message.setFrom(new InternetAddress("Verizon_Classified"));
 		
 		message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
 		message.setSubject("VZ Classified");
@@ -117,7 +117,7 @@ public class ProductUtility {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}*/
+	}
 	public static boolean productEntry(ProductVO p) throws Exception{
 		int rows=0;
 		boolean check=false;
