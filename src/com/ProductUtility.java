@@ -77,7 +77,7 @@ public class ProductUtility {
 		Session session = Session.getDefaultInstance(props,
 			new javax.mail.Authenticator() {
 				protected PasswordAuthentication getPasswordAuthentication() {
-					return new PasswordAuthentication("gauravvicky008","ihateuindia");
+					return new PasswordAuthentication("gauravvicky008","ihateuindia"); 
 				}
 			});
 		MimeMessage message= new MimeMessage(session);
